@@ -15,6 +15,7 @@
     "url": "https://github.com/Patriciadburns1/redux-user-auth"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.1.1",
     "install": "^0.12.1",
@@ -22,7 +23,8 @@
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "redux-form": "^7.4.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
