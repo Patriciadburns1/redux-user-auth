@@ -33,7 +33,7 @@ class Nav extends Component {
                     <NavLink className="nav-link" to='/not-secret-list'> Not Secret List </NavLink>
                 </li>
                 <li className='nav-item'> 
-                    {this.renderAuthButton()}
+                   <NavLink className="nav-link" to="/sign-up"> Sign Up </NavLink> 
                 </li> 
             </NavContainer>
 

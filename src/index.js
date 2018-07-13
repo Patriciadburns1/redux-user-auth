@@ -6,8 +6,9 @@ import rootReducer from './reducers';
 import App from './components/app';
 // add connections for app 
 import {BrowserRouter as Router} from 'react-router-dom'; 
+import think from './middleware/think'; 
 
-const store = createStore(rootReducer, {}, applyMiddleware()); 
+const store = createStore(rootReducer, {}, applyMiddleware(think)); 
 
 
 ReactDOM.render(
