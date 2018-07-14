@@ -1,18 +1,41 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import NavContainer from './nav_container';
 import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../../actions';
 
+
 class Nav extends Component {
-    renderAuthButton() {
-        const { auth, signIn, signOut } = this.props;
-        if (auth) {
-            return <button onClick={signOut} className="btn btn-outline-danger"> SIGN OUT </button>
+
+
+    renderLinks() {
+        if (this.props.auth) {
+            return (
+                <Fragment>
+                    <li className='nav-item'>
+                        <NavLink className="nav-link" to='/movie-quote'> Movie quote </NavLink>
+                    </li>
+                    <li className='nav-item'>
+                        <NavLink className="nav-link" to='/secret-list'> Secret List </NavLink>
+                    </li>
+                    <li>
+                        <button onClick={this.props.signOut} className='btn btn-outline-danger'> Sign Out </button>
+                    </li>
+                </Fragment>
+            );
         }
-       
-        return <button onClick={signIn} className='btn btn-outline-primary'> SIGN IN </button>
+        return (
+            <Fragment>
+                <li className='nav-item'>
+                    <NavLink className="nav-link" to="/sign-up"> Sign Up </NavLink>
+                </li>
+                <li className='nav-item'>
+                    <NavLink className="nav-link" to="/sign-in"> Sign In </NavLink>
+                </li>
+            </Fragment>
+        )
     }
+
 
     render() {
         return (
@@ -23,18 +46,7 @@ class Nav extends Component {
                 <li className='nav-item'>
                     <NavLink className="nav-link" to='/about'> About </NavLink>
                 </li>
-                <li className='nav-item'>
-                    <NavLink className="nav-link" to='/movie-quote'> Movie quote </NavLink>
-                </li>
-                <li className='nav-item'>
-                    <NavLink className="nav-link" to='/secret-list'> Secret List </NavLink>
-                </li>
-                <li className='nav-item'>
-                    <NavLink className="nav-link" to='/not-secret-list'> Not Secret List </NavLink>
-                </li>
-                <li className='nav-item'> 
-                   <NavLink className="nav-link" to="/sign-up"> Sign Up </NavLink> 
-                </li> 
+                {this.renderLinks()}
             </NavContainer>
 
         );
